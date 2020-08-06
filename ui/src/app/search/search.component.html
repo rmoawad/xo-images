@@ -1,0 +1,50 @@
+<div class="search-container">
+
+    <mat-form-field>
+        <mat-select placeholder="Type" [(ngModel)]="searchCriteria.type">
+            <mat-option value="">All</mat-option>
+            <mat-option value="PNG">PNG</mat-option>
+            <mat-option value="JPEG">JPEG</mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <div>
+        Min Size: {{searchCriteria.size/1000}}KB<br>
+        <mat-slider min="0" max="500000" step="1000" placeholder="Size"
+            [(ngModel)]="searchCriteria.size"></mat-slider>
+    </div>
+
+    <mat-form-field>
+        <input matInput placeholder="Description" [(ngModel)]="searchCriteria.description">
+    </mat-form-field>
+
+    <button mat-button color="accent" (click)="search(0 - page)">Search</button>
+</div>
+
+<mat-spinner *ngIf="loading"></mat-spinner>
+
+<mat-table [dataSource]="images" class="mat-elevation-z8" *ngIf="!loading">
+    <ng-container matColumnDef="id">
+        <mat-header-cell *matHeaderCellDef>Id</mat-header-cell>
+        <mat-cell *matCellDef="let image">{{image.id}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="type">
+        <mat-header-cell *matHeaderCellDef>Type</mat-header-cell>
+        <mat-cell *matCellDef="let image">{{image.type}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="size">
+        <mat-header-cell *matHeaderCellDef>Size</mat-header-cell>
+        <mat-cell *matCellDef="let image">{{image.size/1000}}KB</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="description">
+        <mat-header-cell *matHeaderCellDef>Description</mat-header-cell>
+        <mat-cell *matCellDef="let image">{{image.description}}</mat-cell>
+    </ng-container>
+    <mat-header-row *matHeaderRowDef="tableColumns" class="table-header"></mat-header-row>
+    <mat-row *matRowDef="let image; columns: tableColumns"></mat-row>
+</mat-table>
+
+<div class="pager" *ngIf="!loading">
+    <button mat-mini-fab *ngIf="page > 0" color="accent" (click)="search(-1)">Pre</button>
+    <button mat-mini-fab *ngIf="20 === images.length" color="accent" (click)="search(1)">Next</button>
+</div>

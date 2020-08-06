@@ -1,0 +1,39 @@
+.search-container {
+    margin: auto;
+    padding-top:  20px;
+    display: flex;
+    flex-direction: row;
+    border: 3px solid green;
+    margin-bottom: 10px;
+  }
+  
+  .search-container > * {
+    width: 20%;
+    padding-left: 20px; 
+  }
+
+
+  .mat-table, .mat-spinner  {
+    width: 70%;
+    margin: auto;
+    padding-top:  40px; 
+  }
+
+  .mat-slider {
+    width: 70%;
+  }
+  .clickable {
+    cursor: pointer;
+  }
+
+  .table-header {
+    background-color: aqua;
+    font-size: large;
+    font-weight: bolder;
+  }
+
+  .pager {
+    margin: auto;
+    width: 10%; 
+    padding: 5px;
+  }

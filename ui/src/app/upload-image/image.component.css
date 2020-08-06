@@ -1,0 +1,20 @@
+
+  .visible-border {
+    border: 1mm;
+  }
+
+  .dialog-actions {
+    margin: auto;
+    width: 40%;
+    padding: 2%;
+  }
+
+  .error {
+      background-color: tomato;
+      color: #000;
+  }
+
+  .success {
+    background-color: aquamarine;
+    color: #000;
+}

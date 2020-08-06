@@ -1,0 +1,26 @@
+<input style="display: none" type="file"
+accept="image/jpeg, image/png"
+   (change)="onFileChanged($event)" #fileInput>
+
+<div class="dialog-actions">
+
+  <div *ngIf="!!message" class="{{messageType}}">{{ message }}</div>
+  <br>
+  <mat-spinner *ngIf="!!loading"></mat-spinner>
+
+  <div *ngIf="!loading">
+    <mat-label *ngIf="!!inputInfo.selectedImage">Image to upload? {{inputInfo.selectedImage.name}}</mat-label>
+    <br>
+
+    <button mat-icon-button color="accent" (click)="fileInput.click()">Select an Image</button>
+    <br>
+    <mat-form-field class="visible-border">
+      <textarea matInput placeholder="Description" [(ngModel)]="inputInfo.description" rows="4"></textarea>
+    </mat-form-field>
+
+    <div mat-dialog-actions>
+      <button mat-icon-button color="accent"  [disabled]="!inputInfo.description || !inputInfo.selectedImage" (click)="onUpload()">Upload!</button>
+    </div>
+
+  </div>
+</div>
