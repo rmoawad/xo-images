@@ -7,7 +7,7 @@ This is XO task to upload and search for images
 * Git
 * Maven
 * Java8
-* Free port 8081
+* Free port 8080
 
 
 ## How to run locally
