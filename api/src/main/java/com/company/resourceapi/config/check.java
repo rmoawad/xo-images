@@ -11,7 +11,7 @@ import com.amazonaws.services.s3.AmazonS3;
 import com.amazonaws.services.s3.AmazonS3ClientBuilder;
  
 @Configuration
-public class AWSConfig {
+public class check {
  
     // Access key id will be read from the application.properties file during the application intialization.
     @Value("${aws.access_key_id}")
